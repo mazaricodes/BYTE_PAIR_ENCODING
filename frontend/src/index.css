@@ -1,0 +1,136 @@
+:root {
+  --paper: #f4f0e6;
+  --paper-2: #ece6d6;
+  --ink: #1a1714;
+  --ink-soft: #4a423a;
+  --line: #d6cdb8;
+  --amber: #c2410c;
+  --amber-soft: #e8a87c;
+  --teal: #0f766e;
+  --blue: #1e3a8a;
+  --shadow: rgba(26, 23, 20, 0.12);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--paper);
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(26,23,20,0.04) 1px, transparent 0);
+  background-size: 22px 22px;
+  color: var(--ink);
+  font-family: 'IBM Plex Mono', monospace;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap { max-width: 1080px; margin: 0 auto; padding: 48px 24px 96px; }
+
+/* header */
+.masthead { border-bottom: 3px solid var(--ink); padding-bottom: 20px; margin-bottom: 8px; }
+.kicker {
+  font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--amber); font-weight: 600; margin-bottom: 10px;
+}
+.title {
+  font-family: 'Fraunces', serif; font-weight: 900; font-size: clamp(34px, 6vw, 60px);
+  line-height: 0.95; letter-spacing: -0.02em;
+}
+.subtitle {
+  font-family: 'Fraunces', serif; font-style: italic; font-weight: 400;
+  font-size: clamp(15px, 2vw, 19px); color: var(--ink-soft); margin-top: 10px;
+}
+.meta-row {
+  display: flex; flex-wrap: wrap; gap: 18px; margin-top: 16px;
+  font-size: 11px; letter-spacing: 0.08em; color: var(--ink-soft); text-transform: uppercase;
+}
+.meta-row span b { color: var(--ink); }
+
+/* status dot */
+.status { display: inline-flex; align-items: center; gap: 7px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--line); }
+.dot.on { background: var(--teal); box-shadow: 0 0 0 3px rgba(15,118,110,0.18); }
+.dot.off { background: var(--amber); }
+
+/* sections */
+section { margin-top: 44px; }
+.sec-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 18px; }
+.sec-num {
+  font-family: 'Fraunces', serif; font-weight: 900; font-size: 26px; color: var(--amber);
+}
+.sec-title { font-family: 'Fraunces', serif; font-weight: 600; font-size: 22px; letter-spacing: -0.01em; }
+.sec-desc { font-size: 12.5px; color: var(--ink-soft); margin-bottom: 16px; line-height: 1.6; }
+
+/* input card */
+.card {
+  background: var(--paper-2); border: 1.5px solid var(--ink);
+  box-shadow: 6px 6px 0 var(--shadow); padding: 22px;
+}
+textarea {
+  width: 100%; min-height: 84px; resize: vertical; background: var(--paper);
+  border: 1.5px solid var(--line); padding: 14px; font-family: 'IBM Plex Mono', monospace;
+  font-size: 14px; color: var(--ink); line-height: 1.5;
+}
+textarea:focus { outline: none; border-color: var(--amber); }
+
+.controls { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 16px; }
+.seg { display: inline-flex; border: 1.5px solid var(--ink); }
+.seg button {
+  background: transparent; border: none; border-right: 1.5px solid var(--ink);
+  padding: 9px 16px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 500;
+  cursor: pointer; color: var(--ink); transition: all 0.12s;
+}
+.seg button:last-child { border-right: none; }
+.seg button.active { background: var(--ink); color: var(--paper); }
+.seg button:hover:not(.active) { background: var(--amber-soft); }
+
+.btn {
+  background: var(--amber); color: #fff; border: 1.5px solid var(--ink);
+  padding: 10px 22px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600;
+  letter-spacing: 0.04em; cursor: pointer; box-shadow: 3px 3px 0 var(--ink); transition: transform 0.1s;
+}
+.btn:hover { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 var(--ink); }
+.btn:active { transform: translate(2px,2px); box-shadow: 1px 1px 0 var(--ink); }
+.btn.ghost { background: transparent; color: var(--ink); box-shadow: 3px 3px 0 var(--shadow); }
+
+/* tokens */
+.tokens { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 8px; }
+.token {
+  background: var(--paper); border: 1.5px solid var(--ink); padding: 5px 9px;
+  font-size: 13px; position: relative; white-space: nowrap;
+}
+.token .eow { color: var(--amber); font-weight: 600; }
+.token.single { background: #fbeae0; border-color: var(--amber); }
+.token.multi { background: #e3f0ee; border-color: var(--teal); }
+
+.count-strip { display: flex; gap: 22px; margin-top: 16px; flex-wrap: wrap; }
+.count-strip .stat b {
+  font-family: 'Fraunces', serif; font-size: 28px; font-weight: 900; display: block; line-height: 1;
+}
+.count-strip .stat span { font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); }
+
+/* compare grid */
+.cmp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+.cmp-col { background: var(--paper-2); border: 1.5px solid var(--ink); padding: 16px; box-shadow: 4px 4px 0 var(--shadow); }
+.cmp-col h4 { font-family: 'Fraunces', serif; font-size: 18px; margin-bottom: 4px; }
+.cmp-col .vc { font-size: 11px; color: var(--ink-soft); margin-bottom: 12px; }
+
+/* tables */
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+th { font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); border-bottom: 2px solid var(--ink); }
+tbody tr:hover { background: var(--paper-2); }
+td.num { font-variant-numeric: tabular-nums; }
+.trend-down { color: var(--teal); }
+.trend-up { color: var(--amber); }
+
+/* chips for merges / subwords */
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { background: var(--paper-2); border: 1.5px solid var(--ink); padding: 6px 11px; font-size: 12.5px; }
+.chip .n { color: var(--amber); font-weight: 600; margin-right: 6px; }
+.chip .f { color: var(--ink-soft); margin-left: 7px; font-size: 11px; }
+
+.error { background: #fbeae0; border: 1.5px solid var(--amber); padding: 12px 16px; font-size: 13px; color: var(--amber); margin-top: 12px; }
+.hint { font-size: 11.5px; color: var(--ink-soft); margin-top: 10px; line-height: 1.6; }
+
+footer { margin-top: 64px; border-top: 1.5px solid var(--ink); padding-top: 16px; font-size: 11px; color: var(--ink-soft); letter-spacing: 0.06em; }
+a { color: var(--amber); }
